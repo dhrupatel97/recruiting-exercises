@@ -25,13 +25,10 @@ class InvertoryAllocation:
         temp_inventory: list = copy.deepcopy(inventory)
 
         for fruit, value in order.items():
-
-            # if the order value is zero
             if value > 0:
                 my_order_value: int = value
 
                 for x in range(len(temp_inventory)):
-
                     if fruit not in temp_inventory[x]['inventory']:
                         break
                     
@@ -39,7 +36,6 @@ class InvertoryAllocation:
                         break
                     
                     key, order_left, temp_new_inventory, output= self.inventory_update(fruit, my_order_value, temp_inventory[x], output)
-
                     my_order_value = order_left
 
                     if order_left != 0:
